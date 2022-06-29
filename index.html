@@ -5,11 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- SEO -->
-        <title>Here is the presentation title</title>
-        <meta name="description" content="This is the description of the presentation">
+        <title>Terminal Basics</title>
+        <meta name="description" content="Everything you need to get started with a terminal">
 
         <!-- URL CANONICAL -->
-        <link rel="canonical" href="https://example.com">
+        <link rel="canonical" href="https://kieranwood.ca/terminal-basics">
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
@@ -23,17 +23,17 @@
         <!-- SOCIAL CARDS (ADD YOUR INFO) -->
 
         <!-- FACEBOOK -->
-        <meta property="og:url" content="https://example.com">
+        <meta property="og:url" content="https://kieranwood.ca/terminal-basics">
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Here is the presentation title"> 
-        <meta property="og:description" content="This is the description of the presentation">
-        <meta property="og:updated_time" content="2022-06-29 07:46:03.450325">
+        <meta property="og:title" content="Terminal Basics"> 
+        <meta property="og:description" content="Everything you need to get started with a terminal">
+        <meta property="og:updated_time" content="2022-06-29 07:47:08.583067">
         <meta property="og:image" content="static/images/share-webslides.jpg">
 
         <!-- TWITTER -->
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Here is the presentation title"> 
-        <meta name="twitter:description" content="This is the description of the presentation"> 
+        <meta name="twitter:title" content="Terminal Basics"> 
+        <meta name="twitter:description" content="Everything you need to get started with a terminal"> 
         <meta name="twitter:image" content="static/images/share-webslides.jpg">
 
         <!-- FAVICONS -->
@@ -54,24 +54,475 @@
 
     <main role='main'>
         <article id='webslides' >
-			<section class='bg-white'>
+			<section class='bg-black'>
                     <div class='wrap aligncenter'>
-                        <h1><strong>Here is the presentation title</strong></h1>
-                        <p class='text-intro'>This is the description of the presentation</p>
+                        <h1><strong>Terminal Basics</strong></h1>
+                        <p class='text-intro'>Everything you need to get started with a terminal</p>
                     </div>
             </section>
 
-			<section class='bg-white slide-center'>
+			<section class='bg-black slide-center'>
 				<div class='wrap fadeIn'>
 					<div class='content-center'>
-					<h2>Hello world</h2>
-					<p>for images, put them in /images and just use their filename</p>
-<img src='./static/images/kieran-wood-lp-ice-caps-4k-w-peng.jpg' alt='low poly ice caps' >
+					<h2>What do terminals do?</h2>
+					<p>Terminal's allow you to run binaries (compiled programs, sometimes called apps or programs) and scripts (sometimes called commands)</p>
+
 					</div>
 				</div>
 			</section>
 
-			<section class='bg-white'>
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Example</h2>
+					<p>Let's say you're on windows and you compilled a program called hello-world.exe, you can run this if you are in the same file-folder using:</p>
+					<pre><code class='language-bash'>hello-world.exe</code></pre>
+					<p>you do not need the extension for binary files on windows, so you can also use</p>
+					<pre><code class='language-bash'>hello-world</code></pre>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Available terminals</h2>
+					<div class='grid content-center'>
+							<ul style='text-align:justify;'>
+								<li>For windows you can hit the windows key/search and use either cmd (batch), terminal (win 10+) or powershell (examples I use for windows are in batch and might not work on powershell)</li>
+								<li>Macos you can use spotlight to find terminal</li>
+								<li>linux depends on your distro, typically it's called terminal/term/xterm</li>
+					</div>
+							</ul>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Disclaimer</h2>
+					<p>I use *nix to mean any unix based system such as macos or linux</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>File paths</h2>
+					<p>Used to locate files/folders. In order to run anything your terminal must know where the binary or script is. For example if you had a file called 'hello-world.exe' on the desktop you might use the filepath</p>
+					<pre><code class='language-bash'>/Desktop/hello-world.exe</code></pre>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Directory/dir/File folders</h2>
+					<p>These are folders used to house files. They are typically denoted with either a \ or a / at the start or end. For example the desktop folder/directory would be /desktop or desktop/</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Binaries/files</h2>
+					<p>A file is just some data that is stored. A binary is something that is executable (can be run) like a program (when pathing to them the extension is usually optional). Binary files means a non-plain-text file that needs an application to view it properly (i.e. an image file).</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Extensions</h2>
+					<p>These denote the file 'type', it gives the OS an idea of what sort of content is inside the file. Please note this does not ENFORCE behaviour, just suggests it. So someone can open a file with an incompatible extension whenever they want. For example if you have a file called help.txt that would be a txt or text file with a filename of help. Some extensions have multiple dots such as tarballs which have the .tar.gz extension</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Dotfiles</h2>
+					<p>These are special file types that are JUST an extension. They are typically used for configuration and on windows can only be created by certain applications. An example would be a .gitignore file, which is a config file for git and the file is just .gitignore</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>OS Differences</h2>
+					<p>Please keep in mind different operating systems use different standards, for example windows uses \ path seperators and *nix uses /. There will be other differences I will try to point out as we go</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Types of file paths</h2>
+					<p>There are two types of file paths</p>
+					<div class='grid content-center'>
+							<ul style='text-align:justify;'>
+								<li>Relative</li>
+								<li>Absolute</li>
+					</div>
+							</ul>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Relative file paths</h2>
+					<p> By default terminals will have a current working directory (cwd), this is what will be used as a starting point of reference to locate what you need from</p>
+<img src='./static/images/cwd.png' alt='cwd' >
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Relative file path tricks</h2>
+					<p>Here are some tricks for working with relative file paths (# is a comment)</p>
+					<pre><code class='language-python'>. # Means cwd/current folder
+.. # Means to go up one folder. (i.e. if cwd is /kieran/Desktop and you use .. it would be /kieran)
+
+filename.extension # Because it's relative to the cwd you can just type files in the same folder as cwd
+./filename.extension # Equivalent to the line above
+
+folder # Because it's relative to the cwd you can just type the folder/dir if it's in the same folder as cwd
+/folder # Equivalent to above, it's good practice to include a leading slash so others know it's a folder you're looking for
+./folder # Equivalent to above
+</code></pre>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Wildcards</h2>
+					<p>Wildcards (not always supported) allow you to say anything and everything (denoted with *), for example /Desktop/* means ANYTHING on the desktop or /content/*.md means all files that end in .md inside the /content directory. Or Desktop/development/* would be all files and folders inside /Desktop/development</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Absolute file paths</h2>
+					<p>These are file paths that DO NOT care about your cwd. They fully express EXACTLY where something is for example:</p>
+					<pre><code class='language-bash'>C:\Users\Kieran\Desktop\hello-world.exe</code></pre>
+					<p>When using these you never have to worry about your CWD</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>When to use relative vs absolute</h2>
+					<p>Use absolute when the path will never change (i.e. an installed application binary location)</p>
+					<p>Relative paths are better if your location may move. For example if you have a portable app that has a script then a relative path means you don't have to update the path every time you move it somewhere new</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Cons of Absolute paths</h2>
+					<p>Very long and hard to read, cannot dynamically update so if ANYTHING changes it breaks</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Cons of relative paths</h2>
+					<p>Can often trick you into a sense of safety where you forget which paths are being used and break something</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>There is a way to make absolute paths easier to work with</h2>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Environment variables</h2>
+					<p>These are the state of the operating system you are running in. They can denote basically any form of state (you can also create env variables as a way of setting a sytem-wide config variable for an app)</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Environment variables for paths</h2>
+					<p>There is a built in env variable to find the home directory (directory where user content is stored)</p>
+					<p>Linux (~ and $HOME are equivalent)</p>
+					<pre><code class='language-bash'>$HOME
+~</code></pre>
+
+					<a href=https://geek-university.com/common-environment-variables/ target='_blank' rel='external' style='color:#4dd;'>Other UNIX env variables (put $ in front)</a>
+					<p>Windows</p>
+					<pre><code class='language-bash'>%USERPROFILE%</code></pre>
+
+					<a href=https://pureinfotech.com/list-environment-variables-windows-10/ target='_blank' rel='external' style='color:#4dd;'>Useful windows env variables (wrap in % signs)</a>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Example: finding downloads folder</h2>
+					<p>Linux</p>
+					<pre><code class='language-bash'>$HOME/downloads
+~/downloads</code></pre>
+					<p>windows</p>
+					<pre><code class='language-bash'>%USERPROFILE%\Downloads</code></pre>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>PATH Variables</h2>
+					<p>If you go into your terminal and type</p>
+					<pre><code class='language-bash'>echo "Hello World!"</code></pre>
+					<p>You will notice that works, but you don't have a file called echo.exe (or just echo on macos/linux)</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>PATH Variable purpose</h2>
+					<p>This is where a special environment variable comes in called your PATH variable. This essentially sets a list of default files/folders that can be called from anywhere. This works differently across OS's so I'll explain it seperately</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>How PATH works on windows</h2>
+					<p>Windows has a %PATH% variable which is a list of folders, when you type a command it checks if it's an absolute path, then if it's a valid relative path, then it will itterate over every folder in %PATH% and try to find what you're looking for as a relative path</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Windows PATH example</h2>
+					<p>Let's say you type</p>
+					<pre><code class='language-bash'>hello-world</code></pre>
+					<p>Let's say it's not in your CWD and instead is inside %USERPROFILE%/Desktop/hello-world.exe and you have two folders in your %PATH%: %USERPROFILE and %USERPROFILE%/Desktop.</p>
+					<p>Your terminal will first look at ./hello-world.exe, then at %USERPROFILE%/hello-world.exe then check %USERPROFILE%/Desktop/hello-world.exe at which point it would find it and run it</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Reading & updating PATH variable (windows)</h2>
+					<p>You can read your PATH variable by going to a terminal and typing</p>
+					<pre><code class='language-bash'>echo %PATH%</code></pre>
+					<p>Editing is more complicated, go through the windows GUI as it requires a registry edit that is very volatile at the command line (next slide)</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Editing path on windows</h2>
+<img src='./static/images/path-update-windows.png' alt='path-update-windows' >
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>How PATH works on *nix (assuming bash)</h2>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Reading & updating PATH variable (*nix)</h2>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Common commands & Concepts</h2>
+					<p>Now lets get into some built in commands and use cases for the terminal!</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>echo</h2>
+					<p>used to print something, for example printing an environment variable</p>
+					<p>Linux</p>
+					<pre><code class='language-bash'>echo $HOME</code></pre>
+					<p>windows</p>
+					<pre><code class='language-bash'>echo %USERPROFILE%</code></pre>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>cd</h2>
+					<p>Used to change directoy (update your CWD), for example moving into a folder in cwd called /content</p>
+					<pre><code class='language-bash'>cd content</code></pre>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>mv/move</h2>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>mkdir</h2>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>rm/del</h2>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>cat/type</h2>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>cp/copy</h2>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>ls/dir</h2>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>zip/(tar or Compress-Archive)</h2>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Piping & Chaining</h2>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>grep/findstr</h2>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black'>
                     <div class='wrap aligncenter'>
                         <h2><strong>Thank you</strong></h2>
                         <h4 class='text-intro'>This presentation was made with the help of</h4>
