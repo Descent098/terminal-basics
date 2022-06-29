@@ -1,5 +1,7 @@
 # Terminal basics
 
+This presentation covers the basics of using a terminal along with the information you need to operate a terminal effectively
+
 ## Covers
 - What a terminal is
 - How to run terminal commands
