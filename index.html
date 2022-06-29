@@ -27,7 +27,7 @@
         <meta property="og:type" content="article">
         <meta property="og:title" content="Terminal Basics"> 
         <meta property="og:description" content="Everything you need to get started with a terminal">
-        <meta property="og:updated_time" content="2022-06-29 07:47:08.583067">
+        <meta property="og:updated_time" content="2022-06-29 22:21:56.503009">
         <meta property="og:image" content="static/images/share-webslides.jpg">
 
         <!-- TWITTER -->
@@ -103,7 +103,7 @@
 			<section class='bg-black slide-center'>
 				<div class='wrap fadeIn'>
 					<div class='content-center'>
-					<h2>Disclaimer</h2>
+					<h2>*nix</h2>
 					<p>I use *nix to mean any unix based system such as macos or linux</p>
 
 					</div>
@@ -165,7 +165,7 @@
 				<div class='wrap fadeIn'>
 					<div class='content-center'>
 					<h2>OS Differences</h2>
-					<p>Please keep in mind different operating systems use different standards, for example windows uses \ path seperators and *nix uses /. There will be other differences I will try to point out as we go</p>
+					<p>Please keep in mind different operating systems use different standards, for example windows uses \ path seperators and *nix uses /. Likewise most systems folders are capitalized in windows (i.e. Downloads) and lowercase in *nix (i.e. downloads). There will be other differences I will try to point out as we go</p>
 
 					</div>
 				</div>
@@ -392,6 +392,7 @@ folder # Because it's relative to the cwd you can just type the folder/dir if it
 				<div class='wrap fadeIn'>
 					<div class='content-center'>
 					<h2>How PATH works on *nix (assuming bash)</h2>
+					<p>PATH on *nix has 2 parts, aliases and exported folders. Aliases let you set names as shortcut for binaries (i.e. 'chrome' could be an alias for the chrome browser) or folder exports which work the same ways as windows paths where all binaries inside the folders are accessible.</p>
 
 					</div>
 				</div>
@@ -400,7 +401,38 @@ folder # Because it's relative to the cwd you can just type the folder/dir if it
 			<section class='bg-black slide-center'>
 				<div class='wrap fadeIn'>
 					<div class='content-center'>
-					<h2>Reading & updating PATH variable (*nix)</h2>
+					<h2>Where PATH is stored on *nix (assuming bash)</h2>
+					<p>On Linux there will typically be a file at ~/.bashrc where you can make changes, on macos it is typically under ~/.bash_profile</p>
+
+					<a href=https://gist.github.com/marioBonales/1637696 target='_blank' rel='external' style='color:#4dd;'>Example .bashrc file</a>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Updating PATH variable (*nix); Adding 'python' binary to PATH</h2>
+					<p>Lets say you have a binary called python3 located at ~/python3 and you want to be able to call it by running python</p>
+					<p>Linux; Add this line to ~/.bashrc</p>
+					<pre><code class='language-bash'>alias python='~/python3'</code></pre>
+					<p>MacOS; Add this line to ~/.bash_profile</p>
+					<pre><code class='language-bash'>alias python='~/python3'</code></pre>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Updating PATH variable (*nix); Adding ~/programs directory to PATH</h2>
+					<p>Lets say you have a folder called programs with many binaries located at ~/programs and you want to be able to call the binaries inside it</p>
+					<p>Linux; Add this line to ~/.bashrc</p>
+					<pre><code class='language-bash'>export PATH="$PATH:~/programs"</code></pre>
+					<p>MacOS; Add this line to ~/.bash_profile</p>
+					<pre><code class='language-bash'>export PATH="$PATH:~/programs"</code></pre>
 
 					</div>
 				</div>
@@ -411,6 +443,100 @@ folder # Because it's relative to the cwd you can just type the folder/dir if it
 					<div class='content-center'>
 					<h2>Common commands & Concepts</h2>
 					<p>Now lets get into some built in commands and use cases for the terminal!</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Getting help</h2>
+					<p>If you're not sure how to use a command you can (usually) use</p>
+					<p>linux</p>
+					<pre><code class='language-bash'>command -h
+command --help</code></pre>
+					<p>windows</p>
+					<pre><code class='language-bash'>help command</code></pre>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Arguments/flags</h2>
+					<p>Commands will have arguments or flags as they're often called that change how a program operates they are typically in the format</p>
+					<pre><code class='language-bash'>command -f
+command --flag
+command \F</code></pre>
+					<p>The first two are the most common, the last form is mostly used in (really) old windows commands. You can also pass arguments (variables or data) with the following syntax</p>
+					<pre><code class='language-bash'>command -f "some text"
+command --flag="Some Text"</code></pre>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>stdin vs stdout vs stderr</h2>
+					<p>There are 3 'streams' of data that the terminal works with</p>
+					<p>stdin (standard in): The INput stream that the terminal and commands use</p>
+					<p>stdout (standard out): The OUTput stream that is what you as a user often read when a command is finished</p>
+					<p>stderr (standard error): The ERRor stream that looks like stdout to the user, but is specifically for error messages</p>
+<img src='./static/images/std.png' alt='std' >
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Piping</h2>
+					<p>You can PIPE the output (stdout) of one command (command1), or some text to the input (stdin) of another command (command2)</p>
+					<pre><code class='language-bash'>command1 | command2</code></pre>
+					<p>This means command2 will run using the output of command1 as input</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Redirecting</h2>
+					<p>You can redirect the output (stdout) of one command (command1), or some text to an output file (test.txt)</p>
+<pre><code class="language-bash hljs">command1 > test.txt
+<span class="hljs-built_in">command</span> >> test.txt</code></pre>
+					<p>the single angle bracket means create or replace the file contents with the content being redirected, two angle brackets means create or append the file contents with the content being redirected</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Chaining</h2>
+					<p>You can chain together commands to make them run one after another using && (except in powershell)</p>
+					<pre><code class='language-bash'>command1 &amp&amp command2 &amp&amp command3</code></pre>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>Regex</h2>
+					<p>I am not going to cover regex because it could be it's own presentation. But it's essentially a way of writing rules for finding patterns (i.e. Taking in some text and checking if it's a valid email or a valid phone number)</p>
+
+					<a href=https://www.youtube.com/watch?v=zPeEU9dP83M target='_blank' rel='external' style='color:#4dd;'>More info about regex</a>
+
+					<a href=https://regexr.com/ target='_blank' rel='external' style='color:#00ff00;'>Tool to write regex</a>
 
 					</div>
 				</div>
@@ -436,6 +562,8 @@ folder # Because it's relative to the cwd you can just type the folder/dir if it
 					<h2>cd</h2>
 					<p>Used to change directoy (update your CWD), for example moving into a folder in cwd called /content</p>
 					<pre><code class='language-bash'>cd content</code></pre>
+					<p>Those tricks from earlier are all applicable here, so if you want to change your CWD to the directory your current CWD is in you can use</p>
+					<pre><code class='language-bash'>cd ..</code></pre>
 
 					</div>
 				</div>
@@ -445,6 +573,11 @@ folder # Because it's relative to the cwd you can just type the folder/dir if it
 				<div class='wrap fadeIn'>
 					<div class='content-center'>
 					<h2>mv/move</h2>
+					<p>Used to move files/folders (for example move a folder called /content to your downloads)</p>
+					<p>linux</p>
+					<pre><code class='language-bash'>mv content ~/downloads/content</code></pre>
+					<p>Windows</p>
+					<pre><code class='language-bash'>move content %USERPROFILE%\Downloads\content</code></pre>
 
 					</div>
 				</div>
@@ -454,6 +587,51 @@ folder # Because it's relative to the cwd you can just type the folder/dir if it
 				<div class='wrap fadeIn'>
 					<div class='content-center'>
 					<h2>mkdir</h2>
+					<p>Used to create new folders (same command on *nix and windows)</p>
+					<pre><code class='language-bash'>mkdir folder</code></pre>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>touch/echo ' '</h2>
+					<p>Used to create a new blank file (in this example test.txt)</p>
+					<p>linux</p>
+					<pre><code class='language-bash'>touch test.txt</code></pre>
+					<p>Windows</p>
+<pre><code class="language-bash hljs"><span class="hljs-built_in">echo "" > test.txt</code></pre>
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>cp</h2>
+					<p>Used to copy a file/folder to another path on linux (for example copying contents to downloads folder)</p>
+					<p>Linux (copy a file)</p>
+					<pre><code class='language-bash'>cp test.txt ~/downloads/test.txt</code></pre>
+					<p>Linux (copy a folder)</p>
+					<pre><code class='language-bash'>cp -r /folder ~/downloads/folder</code></pre>
+					<p>Linux (copy a folder AND it's contents)</p>
+					<pre><code class='language-bash'>cp -r /folder/* ~/downloads/folder</code></pre>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>copy/xcopy</h2>
+					<p>Used to copy a file/folder to another path on windows (for example copying contents to downloads folder)</p>
+					<p>Windows (file)</p>
+					<pre><code class='language-bash'>copy test.txt %USERPROFILE%\Downloads</code></pre>
+					<p>Windows (folder AND it's contents)</p>
+					<pre><code class='language-bash'>xcopy /E /I folder %USERPROFILE%\Downloads\folder</code></pre>
 
 					</div>
 				</div>
@@ -463,6 +641,13 @@ folder # Because it's relative to the cwd you can just type the folder/dir if it
 				<div class='wrap fadeIn'>
 					<div class='content-center'>
 					<h2>rm/del</h2>
+					<p>Used to delete files/folders</p>
+					<p>Linux (deleting a file)</p>
+					<pre><code class='language-bash'>rm test.txt</code></pre>
+					<p>Linux (deleting a folder)</p>
+					<pre><code class='language-bash'>rm -rf /folder</code></pre>
+					<p>Windows (del works on files or folders)</p>
+					<pre><code class='language-bash'>del test.txt</code></pre>
 
 					</div>
 				</div>
@@ -472,15 +657,11 @@ folder # Because it's relative to the cwd you can just type the folder/dir if it
 				<div class='wrap fadeIn'>
 					<div class='content-center'>
 					<h2>cat/type</h2>
-
-					</div>
-				</div>
-			</section>
-
-			<section class='bg-black slide-center'>
-				<div class='wrap fadeIn'>
-					<div class='content-center'>
-					<h2>cp/copy</h2>
+					<p>Used to read the contents of a file</p>
+					<p>Linux</p>
+					<pre><code class='language-bash'>cat test.txt</code></pre>
+					<p>Windows</p>
+					<pre><code class='language-bash'>type test.txt</code></pre>
 
 					</div>
 				</div>
@@ -490,6 +671,27 @@ folder # Because it's relative to the cwd you can just type the folder/dir if it
 				<div class='wrap fadeIn'>
 					<div class='content-center'>
 					<h2>ls/dir</h2>
+					<p>Used to list the contents of a folder (can pass a file path but defaults to CWD)</p>
+					<p>linux</p>
+					<pre><code class='language-bash'>ls
+ls /folder</code></pre>
+					<p>windows</p>
+					<pre><code class='language-bash'>dir
+dir /folder</code></pre>
+
+					</div>
+				</div>
+			</section>
+
+			<section class='bg-black slide-center'>
+				<div class='wrap fadeIn'>
+					<div class='content-center'>
+					<h2>which/where</h2>
+					<p>Used to find the filepath to the binary being run when you type in a command</p>
+					<p>linux</p>
+					<pre><code class='language-bash'>which command</code></pre>
+					<p>windows</p>
+					<pre><code class='language-bash'>where command</code></pre>
 
 					</div>
 				</div>
@@ -499,15 +701,13 @@ folder # Because it's relative to the cwd you can just type the folder/dir if it
 				<div class='wrap fadeIn'>
 					<div class='content-center'>
 					<h2>zip/(tar or Compress-Archive)</h2>
-
-					</div>
-				</div>
-			</section>
-
-			<section class='bg-black slide-center'>
-				<div class='wrap fadeIn'>
-					<div class='content-center'>
-					<h2>Piping & Chaining</h2>
+					<p>Create a zip/archive file that contains other files/folders (for example putting /folder into a zip/archive file)</p>
+					<p>linux</p>
+					<pre><code class='language-bash'>zip -r folder.zip folder</code></pre>
+					<p>windows (powershell)</p>
+					<pre><code class='language-bash'>Compress-archive folder folder.zip</code></pre>
+					<p>windows (CMD)</p>
+					<pre><code class='language-bash'>tar -cvzf folder.tar folder</code></pre>
 
 					</div>
 				</div>
@@ -517,6 +717,12 @@ folder # Because it's relative to the cwd you can just type the folder/dir if it
 				<div class='wrap fadeIn'>
 					<div class='content-center'>
 					<h2>grep/findstr</h2>
+					<p>Allows you to find all instances of a string or regex pattern. Typically this is used in conjunction with a pipe for input (for example I can search for lines with 'ezprez' in this presentations source file)</p>
+					<p>linux</p>
+					<pre><code class='language-bash'>cat example.py | grep ezprez</code></pre>
+					<p>windows</p>
+					<pre><code class='language-bash'>type example.py | findstr ezprez</code></pre>
+					<p>Keep in mind this can only be used on text and text-like files, not binaries or binary files. Also you can use this in a loop to search all files in a directory to see which one's contain a certain string or pattern.</p>
 
 					</div>
 				</div>
